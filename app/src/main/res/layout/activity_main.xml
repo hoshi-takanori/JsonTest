@@ -6,11 +6,25 @@
     android:layout_height="match_parent"
     android:padding="@dimen/activity_margin">
 
-    <Button
-        android:text="LoganSquare"
-        android:onClick="testLogan"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="LoganSquare"
+            android:onClick="testLogan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:text="Gson"
+            android:onClick="testGson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_margin"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/text_result"

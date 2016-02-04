@@ -18,4 +18,8 @@ public class MainActivity extends AppCompatActivity {
     public void testLogan(View view) {
         resultText.setText("<<< LoganSquare >>>\n\n" + new LoganTest().test());
     }
+
+    public void testGson(View view) {
+        resultText.setText("<<< Gson >>>\n\n" + new GsonTest().test());
+    }
 }
