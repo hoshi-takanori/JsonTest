@@ -30,8 +30,8 @@ public class LoganTest {
     }
 
     public String test2() {
+        String json = "{\"id\":456,\"name\":\"takanori\"}";
         try {
-            String json = "{\"id\":456,\"name\":\"takanori\"}";
             User user = LoganSquare.parse(json, User.class);
             return json + "\n" + user;
         } catch (IOException e) {
@@ -40,8 +40,8 @@ public class LoganTest {
     }
 
     public String test3() {
+        String json = "{\"id\":789,\"first_name\":\"takanori\",\"last_name\":\"hoshi\"}";
         try {
-            String json = "{\"id\":789,\"first_name\":\"takanori\",\"last_name\":\"hoshi\"}";
             User user = LoganSquare.parse(json, User.class);
             FullnameUser fullnameUser = LoganSquare.parse(json, FullnameUser.class);
             return json + "\n" + user + "\n" + fullnameUser;

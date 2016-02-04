@@ -19,6 +19,7 @@ public class GsonTest {
         sb.append("test 1\n" + test1() + "\n\n");
         sb.append("test 2\n" + test2() + "\n\n");
         sb.append("test 3\n" + test3() + "\n\n");
+        sb.append("test 4\n" + test4() + "\n\n");
         return sb.toString();
     }
 
@@ -44,5 +45,18 @@ public class GsonTest {
         User user = gson.fromJson(json, User.class);
         FullnameUser fullnameUser = gson.fromJson(json, FullnameUser.class);
         return json + "\n" + user + "\n" + fullnameUser;
+    }
+
+    public String test4() {
+        String json = "{\"success\":true,\"results\":[" +
+                "{\"id\":1,\"type\":\"base\"}," +
+                "{\"id\":2,\"type\":\"person\",\"firstName\":\"Takanori\",\"lastName\":\"Hoshi\"}," +
+                "{\"id\":3,\"type\":\"machine\",\"maker\":\"Apple\",\"name\":\"iPhone\",\"price\":800}," +
+                "{\"id\":4,\"type\":\"book\",\"author\":" +
+                "{\"id\":2,\"type\":\"person\",\"firstName\":\"Takanori\",\"lastName\":\"Hoshi\"}," +
+                "\"title\":\"Top Secret\"}" +
+                "]}";
+        Result result = gson.fromJson(json, Result.class);
+        return json + "\n" + result;
     }
 }

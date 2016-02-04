@@ -21,6 +21,7 @@ public class JacksonTest {
         sb.append("test 1\n" + test1() + "\n\n");
         sb.append("test 2\n" + test2() + "\n\n");
         sb.append("test 3\n" + test3() + "\n\n");
+        sb.append("test 4\n" + test4() + "\n\n");
         return sb.toString();
     }
 
@@ -40,8 +41,8 @@ public class JacksonTest {
     }
 
     public String test2() {
+        String json = "{\"id\":456,\"name\":\"takanori\"}";
         try {
-            String json = "{\"id\":456,\"name\":\"takanori\"}";
             User user = mapper.readValue(json, User.class);
             return json + "\n" + user;
         } catch (IOException e) {
@@ -50,11 +51,28 @@ public class JacksonTest {
     }
 
     public String test3() {
+        String json = "{\"id\":789,\"first_name\":\"takanori\",\"last_name\":\"hoshi\"}";
         try {
-            String json = "{\"id\":789,\"first_name\":\"takanori\",\"last_name\":\"hoshi\"}";
             User user = mapper.readValue(json, User.class);
             FullnameUser fullnameUser = mapper.readValue(json, FullnameUser.class);
             return json + "\n" + user + "\n" + fullnameUser;
+        } catch (IOException e) {
+            return e.toString();
+        }
+    }
+
+    public String test4() {
+        String json = "{\"success\":true,\"results\":[" +
+                "{\"id\":1,\"type\":\"base\"}," +
+                "{\"id\":2,\"type\":\"person\",\"firstName\":\"Takanori\",\"lastName\":\"Hoshi\"}," +
+                "{\"id\":3,\"type\":\"machine\",\"maker\":\"Apple\",\"name\":\"iPhone\",\"price\":800}," +
+                "{\"id\":4,\"type\":\"book\",\"author\":" +
+                "{\"id\":2,\"type\":\"person\",\"firstName\":\"Takanori\",\"lastName\":\"Hoshi\"}," +
+                "\"title\":\"Top Secret\"}" +
+                "]}";
+        try {
+            Result result = mapper.readValue(json, Result.class);
+            return json + "\n" + result;
         } catch (IOException e) {
             return e.toString();
         }
