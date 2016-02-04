@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class JacksonTest {
     private ObjectMapper mapper;
@@ -22,6 +23,7 @@ public class JacksonTest {
         sb.append("test 2\n" + test2() + "\n\n");
         sb.append("test 3\n" + test3() + "\n\n");
         sb.append("test 4\n" + test4() + "\n\n");
+        sb.append("test 5\n" + test5() + "\n\n");
         return sb.toString();
     }
 
@@ -62,17 +64,26 @@ public class JacksonTest {
     }
 
     public String test4() {
-        String json = "{\"success\":true,\"results\":[" +
-                "{\"id\":1,\"type\":\"base\"}," +
-                "{\"id\":2,\"type\":\"person\",\"firstName\":\"Takanori\",\"lastName\":\"Hoshi\"}," +
-                "{\"id\":3,\"type\":\"machine\",\"maker\":\"Apple\",\"name\":\"iPhone\",\"price\":800}," +
-                "{\"id\":4,\"type\":\"book\",\"author\":" +
-                "{\"id\":2,\"type\":\"person\",\"firstName\":\"Takanori\",\"lastName\":\"Hoshi\"}," +
-                "\"title\":\"Top Secret\"}" +
-                "]}";
+        Result result = new Result();
+        result.success = true;
+        result.results = new ArrayList<>();
+        result.results.add(new Base(1, "base"));
+        Person person = new Person(2, "takanori", "hoshi");
+        result.results.add(person);
+        result.results.add(new Machine(3, "apple", "iphone", 600));
+        result.results.add(new Book(4, person, "the top secret"));
+        try {
+            return mapper.writeValueAsString(result);
+        } catch (IOException e) {
+            return e.toString();
+        }
+    }
+
+    public String test5() {
+        String json = test4();
         try {
             Result result = mapper.readValue(json, Result.class);
-            return json + "\n" + result;
+            return result.toString();
         } catch (IOException e) {
             return e.toString();
         }

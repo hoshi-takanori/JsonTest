@@ -4,6 +4,8 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.ArrayList;
+
 public class GsonTest {
     private Gson gson;
 
@@ -20,6 +22,7 @@ public class GsonTest {
         sb.append("test 2\n" + test2() + "\n\n");
         sb.append("test 3\n" + test3() + "\n\n");
         sb.append("test 4\n" + test4() + "\n\n");
+        sb.append("test 5\n" + test5() + "\n\n");
         return sb.toString();
     }
 
@@ -48,15 +51,20 @@ public class GsonTest {
     }
 
     public String test4() {
-        String json = "{\"success\":true,\"results\":[" +
-                "{\"id\":1,\"type\":\"base\"}," +
-                "{\"id\":2,\"type\":\"person\",\"firstName\":\"Takanori\",\"lastName\":\"Hoshi\"}," +
-                "{\"id\":3,\"type\":\"machine\",\"maker\":\"Apple\",\"name\":\"iPhone\",\"price\":800}," +
-                "{\"id\":4,\"type\":\"book\",\"author\":" +
-                "{\"id\":2,\"type\":\"person\",\"firstName\":\"Takanori\",\"lastName\":\"Hoshi\"}," +
-                "\"title\":\"Top Secret\"}" +
-                "]}";
+        Result result = new Result();
+        result.success = true;
+        result.results = new ArrayList<>();
+        result.results.add(new Base(1, "base"));
+        Person person = new Person(2, "takanori", "hoshi");
+        result.results.add(person);
+        result.results.add(new Machine(3, "apple", "iphone", 600));
+        result.results.add(new Book(4, person, "the top secret"));
+        return gson.toJson(result);
+    }
+
+    public String test5() {
+        String json = test4();
         Result result = gson.fromJson(json, Result.class);
-        return json + "\n" + result;
+        return result.toString();
     }
 }
