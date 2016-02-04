@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:text="LoganSquare"
+            android:text="Logan"
             android:onClick="testLogan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -20,6 +20,13 @@
         <Button
             android:text="Gson"
             android:onClick="testGson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_margin"/>
+
+        <Button
+            android:text="Jackson"
+            android:onClick="testJackson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_margin"/>

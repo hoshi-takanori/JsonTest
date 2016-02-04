@@ -22,4 +22,8 @@ public class MainActivity extends AppCompatActivity {
     public void testGson(View view) {
         resultText.setText("<<< Gson >>>\n\n" + new GsonTest().test());
     }
+
+    public void testJackson(View view) {
+        resultText.setText("<<< Jackson >>>\n\n" + new JacksonTest().test());
+    }
 }
