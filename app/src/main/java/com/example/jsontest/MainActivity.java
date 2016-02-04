@@ -16,6 +16,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void testLogan(View view) {
-        resultText.setText(LoganTest.test());
+        resultText.setText("<<< LoganSquare >>>\n\n" + new LoganTest().test());
     }
 }

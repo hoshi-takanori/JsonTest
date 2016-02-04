@@ -5,7 +5,7 @@ import com.bluelinelabs.logansquare.LoganSquare;
 import java.io.IOException;
 
 public class LoganTest {
-    public static String test() {
+    public String test() {
         StringBuilder sb = new StringBuilder();
         sb.append("test 0\n" + testUser() + "\n\n");
         sb.append("test 1\n" + test1() + "\n\n");
@@ -14,14 +14,14 @@ public class LoganTest {
         return sb.toString();
     }
 
-    public static User testUser() {
+    public User testUser() {
         User user = new User();
         user.id = 123;
         user.name = "hoshi";
         return user;
     }
 
-    public static String test1() {
+    public String test1() {
         try {
             return LoganSquare.serialize(testUser());
         } catch (IOException e) {
@@ -29,7 +29,7 @@ public class LoganTest {
         }
     }
 
-    public static String test2() {
+    public String test2() {
         try {
             String json = "{\"id\":456,\"name\":\"takanori\"}";
             User user = LoganSquare.parse(json, User.class);
@@ -39,11 +39,12 @@ public class LoganTest {
         }
     }
 
-    public static String test3() {
+    public String test3() {
         try {
             String json = "{\"id\":789,\"first_name\":\"takanori\",\"last_name\":\"hoshi\"}";
             User user = LoganSquare.parse(json, User.class);
-            return json + "\n" + user;
+            FullnameUser fullnameUser = LoganSquare.parse(json, FullnameUser.class);
+            return json + "\n" + user + "\n" + fullnameUser;
         } catch (IOException e) {
             return e.toString();
         }
