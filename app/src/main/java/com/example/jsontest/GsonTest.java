@@ -12,6 +12,7 @@ public class GsonTest {
     public GsonTest() {
         gson = new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                .registerTypeAdapter(Base.class, new BaseAdapter())
                 .create();
     }
 
