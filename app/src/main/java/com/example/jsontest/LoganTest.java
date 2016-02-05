@@ -1,6 +1,8 @@
 package com.example.jsontest;
 
 import com.bluelinelabs.logansquare.LoganSquare;
+import com.example.jsontest.data.FullnameUser;
+import com.example.jsontest.data.User;
 
 import java.io.IOException;
 

@@ -1,5 +1,9 @@
 package com.example.jsontest;
 
+import com.example.jsontest.data.Base;
+import com.example.jsontest.data.Book;
+import com.example.jsontest.data.Machine;
+import com.example.jsontest.data.Person;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;

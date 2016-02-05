@@ -1,4 +1,4 @@
-package com.example.jsontest;
+package com.example.jsontest.data;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;

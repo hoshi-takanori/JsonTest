@@ -1,4 +1,4 @@
-package com.example.jsontest;
+package com.example.jsontest.data;
 
 public class Book extends Base {
     public Person author;

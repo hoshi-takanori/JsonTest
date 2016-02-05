@@ -1,4 +1,4 @@
-package com.example.jsontest;
+package com.example.jsontest.data;
 
 import com.bluelinelabs.logansquare.annotation.JsonField;
 import com.bluelinelabs.logansquare.annotation.JsonObject;

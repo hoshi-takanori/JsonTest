@@ -1,4 +1,4 @@
-package com.example.jsontest;
+package com.example.jsontest.data;
 
 import java.util.List;
 

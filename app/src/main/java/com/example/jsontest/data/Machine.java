@@ -1,4 +1,4 @@
-package com.example.jsontest;
+package com.example.jsontest.data;
 
 public class Machine extends Base {
     public String maker;

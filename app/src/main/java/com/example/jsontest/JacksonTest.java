@@ -1,5 +1,12 @@
 package com.example.jsontest;
 
+import com.example.jsontest.data.Base;
+import com.example.jsontest.data.Book;
+import com.example.jsontest.data.FullnameUser;
+import com.example.jsontest.data.Machine;
+import com.example.jsontest.data.Person;
+import com.example.jsontest.data.Result;
+import com.example.jsontest.data.User;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
